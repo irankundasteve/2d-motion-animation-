@@ -25,18 +25,22 @@ export const Scene: React.FC<{segment: VideoSegment}> = ({segment}) => {
     config: {stiffness: 100},
   });
 
+  const shake = segment.visual.toLowerCase().includes('beast') || segment.visual.toLowerCase().includes('deep')
+    ? Math.sin(frame * 2) * 5
+    : 0;
+
   const renderVisual = () => {
     const visualLower = segment.visual.toLowerCase();
     
     // Simple mapping based on keywords in visual description
     if (visualLower.includes('wave') || visualLower.includes('ocean')) {
-      return <Icons.Waves size={300} color="#00a8ff" style={{transform: `scale(${scale})` }} />;
+      return <Icons.Waves size={300} color="#00a8ff" style={{transform: `scale(${scale}) translateX(${shake}px)` }} />;
     }
     if (visualLower.includes('globe')) {
-      return <Icons.Globe size={400} color="#00d2ff" style={{transform: `scale(${scale * 1.2})` }} />;
+      return <Icons.Globe size={400} color="#00d2ff" style={{transform: `scale(${scale * 1.2}) translateX(${shake}px)` }} />;
     }
     if (visualLower.includes('beast') || visualLower.includes('eye')) {
-      return <Icons.Eye size={300} color="#ff4757" style={{transform: `scale(${scale})` }} />;
+      return <Icons.Eye size={300} color="#ff4757" style={{transform: `scale(${scale * 1.5}) translateX(${shake}px)` }} />;
     }
     if (visualLower.includes('ship')) {
       return <Icons.Ship size={300} color="#f1f2f6" style={{transform: `scale(${scale})` }} />;
