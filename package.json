@@ -17,6 +17,7 @@
     "@remotion/cli": "^4.0.460",
     "@remotion/google-fonts": "^4.0.460",
     "@remotion/player": "^4.0.460",
+    "@remotion/sfx": "^4.0.460",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "dotenv": "^17.2.3",

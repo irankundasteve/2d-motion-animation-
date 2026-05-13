@@ -1,39 +1,31 @@
 import {Audio, Sequence} from 'remotion';
 import {TRANSCRIPT, FPS} from './constants';
-
-const SOUNDS = {
-  ambient: 'https://actions.google.com/sounds/v1/water/crashing_waves_on_beach.ogg',
-  swoosh: 'https://actions.google.com/sounds/v1/cartoon/swoosh.ogg',
-  pop: 'https://actions.google.com/sounds/v1/cartoon/pop.ogg',
-  impact: 'https://actions.google.com/sounds/v1/impacts/deep_thud.ogg',
-  beast: 'https://actions.google.com/sounds/v1/animals/lion_growl_single.ogg',
-};
+import * as SFX from '@remotion/sfx';
 
 export const SoundEffects = () => {
   return (
     <>
-      {/* Background Ambient Ocean */}
-      <Audio src={SOUNDS.ambient} volume={0.3} placeholder="" />
-
-      {/* Programmatic sound triggers based on segment content */}
+      {/* Short form videos often don't have long ambient tracks, but let's add some transitions */}
       {TRANSCRIPT.map((segment) => {
         const startFrame = Math.round(segment.start * FPS);
         const visual = segment.visual.toLowerCase();
+        const text = segment.text.toLowerCase();
         
-        let soundSrc = '';
-        if (visual.includes('pop') || visual.includes('icon') || visual.includes('dot')) {
-          soundSrc = SOUNDS.pop;
-        } else if (visual.includes('flash') || visual.includes('beast')) {
-          soundSrc = SOUNDS.beast;
-        } else if (visual.includes('massive') || visual.includes('deep')) {
-          soundSrc = SOUNDS.impact;
-        } else {
-          soundSrc = SOUNDS.swoosh;
+        let soundSrc: string = SFX.whoosh; // Default transition sound
+        
+        if (visual.includes('pop') || visual.includes('dot')) {
+          soundSrc = SFX.ding;
+        } else if (visual.includes('beast') || text.includes('beast') || visual.includes('massive')) {
+          soundSrc = SFX.vineBoom; // Punchy emphasis for "beast"
+        } else if (visual.includes('label') || visual.includes('map')) {
+          soundSrc = SFX.uiSwitch;
+        } else if (visual.includes('house') || visual.includes('people')) {
+          soundSrc = SFX.mouseClick;
         }
 
         return (
-          <Sequence key={`sound-${segment.id}`} from={startFrame} durationInFrames={30}>
-            <Audio src={soundSrc} volume={0.8} placeholder="" />
+          <Sequence key={`sound-${segment.id}`} from={startFrame} durationInFrames={Math.floor(FPS * 1.5)}>
+            <Audio src={soundSrc} volume={0.6} />
           </Sequence>
         );
       })}
