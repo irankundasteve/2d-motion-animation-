@@ -6,14 +6,9 @@ import {
   HEIGHT,
   DURATION_IN_FRAMES,
 } from './constants';
-import {continueRender, delayRender, staticFile} from 'remotion';
+import {loadFont} from '@remotion/google-fonts/Inter';
 
-// Import fonts if needed (Remotion way)
-const waitForFont = delayRender();
-import('@remotion/google-fonts/Inter').then(({loadFont}) => {
-  loadFont();
-  continueRender(waitForFont);
-});
+loadFont();
 
 export const RemotionRoot = () => {
   return (
