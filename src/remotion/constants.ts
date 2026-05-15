@@ -241,4 +241,32 @@ export const TRANSCRIPT: VideoSegment[] = [
 export const FPS = 30;
 export const WIDTH = 1080;
 export const HEIGHT = 1920;
-export const DURATION_IN_FRAMES = Math.ceil(TRANSCRIPT[TRANSCRIPT.length - 1].end * FPS);
+export const DURATION_IN_FRAMES = Math.ceil((TRANSCRIPT[TRANSCRIPT.length - 1]?.end || 0) * FPS);
+
+export const BALL_CONFIG = {
+  width: 1080,
+  height: 1920,
+  fps: 30,
+  durationInFrames: 5 * 30,
+  ball: {
+    radius: 100,
+    color: '#FFD100',
+    stroke: '#FFFFFF',
+    strokeWidth: 5,
+    physics: {
+      startX: 540,
+      startY: 200,
+      gravity: 0.8,
+      bounciness: 0.75,
+      floorY: 1800,
+      initialVelocityX: 5,
+    },
+    behavior: {
+      maxStretch: 1.2,
+      maxSquash: 0.8,
+    },
+    exit: {
+      startAtFrame: 4.5 * 30,
+    }
+  }
+};

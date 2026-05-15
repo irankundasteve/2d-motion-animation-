@@ -4,24 +4,19 @@
  */
 
 import {Player} from '@remotion/player';
-import {Video} from './remotion/Video';
-import {
-  FPS,
-  WIDTH,
-  HEIGHT,
-  DURATION_IN_FRAMES,
-} from './remotion/constants';
+import {BouncingBall} from './remotion/BouncingBall';
+import {BALL_CONFIG} from './remotion/constants';
 
 export default function App() {
   return (
     <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md aspect-[9/16] bg-black rounded-3xl overflow-hidden shadow-2xl border-8 border-slate-800 relative">
         <Player
-          component={Video}
-          durationInFrames={DURATION_IN_FRAMES}
-          compositionWidth={WIDTH}
-          compositionHeight={HEIGHT}
-          fps={FPS}
+          component={BouncingBall}
+          durationInFrames={BALL_CONFIG.durationInFrames}
+          compositionWidth={BALL_CONFIG.width}
+          compositionHeight={BALL_CONFIG.height}
+          fps={BALL_CONFIG.fps}
           controls
           loop
           style={{
@@ -31,7 +26,7 @@ export default function App() {
         />
         
         <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-xs font-mono text-white/60 pointer-events-none">
-          Ocean vs Sea - 9:16
+          Physics Ball - 9:16
         </div>
       </div>
     </div>
