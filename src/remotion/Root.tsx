@@ -3,6 +3,7 @@ import {Video} from './Video';
 import {BouncingBall} from './BouncingBall';
 import {KineticTypography} from './KineticTypography';
 import {BounceToHello} from './BounceToHello';
+import {BounceToHelloV3} from './BounceToHelloV3';
 import {
   FPS,
   WIDTH,
@@ -10,6 +11,7 @@ import {
   DURATION_IN_FRAMES,
   KINETIC_CONFIG,
   BOUNCE_CONFIG,
+  BOUNCE_HELLO_V3,
 } from './constants';
 import {loadFont} from '@remotion/google-fonts/Inter';
 import {loadFont as loadMontserrat} from '@remotion/google-fonts/Montserrat';
@@ -53,6 +55,14 @@ export const RemotionRoot = () => {
         fps={BOUNCE_CONFIG.fps}
         width={BOUNCE_CONFIG.width}
         height={BOUNCE_CONFIG.height}
+      />
+      <Composition
+        id="BounceToHelloV3"
+        component={BounceToHelloV3}
+        durationInFrames={BOUNCE_HELLO_V3.durationInFrames}
+        fps={BOUNCE_HELLO_V3.fps}
+        width={BOUNCE_HELLO_V3.width}
+        height={BOUNCE_HELLO_V3.height}
       />
     </>
   );
