@@ -373,3 +373,15 @@ export const BOUNCE_HELLO_V4 = {
   textColor: '#FFFFFF',
   bgColor: '#1E2226',
 };
+
+export const DIAMOND_RAIN_CONFIG = {
+  width: 1080,
+  height: 1920,
+  fps: 30,
+  durationInFrames: (4000 + 4500 + 4000 + 3500) / 1000 * 30, // 480 frames
+  colors: {
+    brand: '#00D4FF',
+    text: '#FFFFFF',
+    bg: '#0A1931',
+  }
+};

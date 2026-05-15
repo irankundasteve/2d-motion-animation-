@@ -5,6 +5,7 @@ import {KineticTypography} from './KineticTypography';
 import {BounceToHello} from './BounceToHello';
 import {BounceToHelloV3} from './BounceToHelloV3';
 import {BounceToHelloV4} from './BounceToHelloV4';
+import {DiamondRain} from './DiamondRain';
 import {
   FPS,
   WIDTH,
@@ -14,6 +15,7 @@ import {
   BOUNCE_CONFIG,
   BOUNCE_HELLO_V3,
   BOUNCE_HELLO_V4,
+  DIAMOND_RAIN_CONFIG,
 } from './constants';
 import {loadFont} from '@remotion/google-fonts/Inter';
 import {loadFont as loadMontserrat} from '@remotion/google-fonts/Montserrat';
@@ -73,6 +75,14 @@ export const RemotionRoot = () => {
         fps={BOUNCE_HELLO_V4.fps}
         width={BOUNCE_HELLO_V4.width}
         height={BOUNCE_HELLO_V4.height}
+      />
+      <Composition
+        id="DiamondRain"
+        component={DiamondRain}
+        durationInFrames={DIAMOND_RAIN_CONFIG.durationInFrames}
+        fps={DIAMOND_RAIN_CONFIG.fps}
+        width={DIAMOND_RAIN_CONFIG.width}
+        height={DIAMOND_RAIN_CONFIG.height}
       />
     </>
   );
