@@ -270,3 +270,87 @@ export const BALL_CONFIG = {
     }
   }
 };
+
+export const KINETIC_CONFIG = {
+  width: 1080,
+  height: 1920,
+  fps: 30,
+  backgroundColor: '#FFD000',
+  globalStyle: {
+    fontFamily: 'Montserrat, sans-serif',
+    fontWeightBold: 800,
+    colorWhite: '#FFFFFF',
+    colorDark: '#1E2226'
+  },
+  screens: [
+    {
+      id: 's01_sales',
+      startMs: 0,
+      durationMs: 2800,
+      elements: [
+        { id: 'want_to', text: 'WANT TO', y: 760, size: 72, color: '#FFFFFF', delay: 0 },
+        { id: 'increase', text: 'INCREASE', y: 880, size: 128, color: '#FFFFFF', delay: 600, slideIn: true },
+        { id: 'your', text: 'YOUR', y: 1040, size: 112, color: '#1E2226', delay: 1000 },
+        { id: 'sales', text: 'SALES', y: 1200, size: 128, color: '#FFFFFF', delay: 1400 },
+        { id: 'exclamation', text: '!', x: 880, y: 980, size: 240, color: '#1E2226', delay: 1800, pop: true }
+      ]
+    },
+    {
+      id: 's02_need',
+      startMs: 2800,
+      durationMs: 3200,
+      elements: [
+        { id: 'need', text: 'NEED', y: 820, size: 140, color: '#FFFFFF', delay: 200, slideIn: true },
+        { id: 'an_animated', text: 'AN ANIMATED', y: 980, size: 110, color: '#1E2226', delay: 500, slideIn: 'left' },
+        { id: 'video', text: 'VIDEO', y: 1140, size: 140, color: '#FFFFFF', delay: 900 }
+      ]
+    },
+    {
+      id: 's03_unique',
+      startMs: 6000,
+      durationMs: 3400,
+      elements: [
+        { id: 'unique', text: 'UNIQUE', y: 800, size: 150, color: '#FFFFFF', delay: 0 },
+        { id: 'typography', text: 'TYPOGRAPHY', y: 980, size: 96, color: '#1E2226', delay: 300 },
+        { id: 'pack', text: 'PACK FOR YOUR PROJECT', y: 1160, size: 72, color: '#1E2226', delay: 800 }
+      ]
+    },
+    {
+      id: 's04_kinetic',
+      startMs: 10400,
+      durationMs: 3100,
+      elements: [
+        { id: 'kinetic_line1', text: 'KINETIC TYPO USED TO PROMOTE', y: 880, size: 64, color: '#FFFFFF', delay: 0 },
+        { id: 'your_business', text: 'YOUR BUSINESS', y: 1020, size: 100, color: '#1E2226', delay: 700 }
+      ]
+    },
+    {
+      id: 's05_titles',
+      startMs: 14300,
+      durationMs: 3700,
+      elements: [
+        { id: 'titles_pack', text: 'TITLES ANIMATION GRAPHIC PACK', y: 800, size: 48, color: '#1E2226', delay: 0 },
+        { id: 'stylish', text: 'STYLISH ANIMATED TITLES', y: 960, size: 84, color: '#FFFFFF', delay: 400, background: '#1E2226' }
+      ]
+    },
+    {
+      id: 's06_features',
+      startMs: 18500,
+      durationMs: 6000,
+      elements: [
+        { id: 'custom_colors', text: 'CUSTOM COLORS', y: 960, size: 110, color: '#FFFFFF', delay: 0 },
+        { id: 'custom_fonts', text: 'CUSTOM FONTS', y: 960, size: 110, color: '#FFFFFF', delay: 2000 },
+        { id: 'full_hd', text: 'FULL HD', y: 960, size: 130, color: '#1E2226', delay: 4000 }
+      ]
+    }
+  ]
+};
+
+export const BOUNCE_CONFIG = {
+  width: 1080,
+  height: 1920,
+  fps: 30,
+  durationInFrames: 3.2 * 30,
+  ballColor: '#00FFD1',
+  textColor: '#0A0A0A',
+};
