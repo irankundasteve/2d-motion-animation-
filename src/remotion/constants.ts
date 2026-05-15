@@ -363,3 +363,13 @@ export const BOUNCE_HELLO_V3 = {
   ballColor: '#FF3B30',
   textColor: '#FFFFFF',
 };
+
+export const BOUNCE_HELLO_V4 = {
+  width: 1080,
+  height: 1920,
+  fps: 30,
+  durationInFrames: 135,
+  brandColor: '#FF3B30',
+  textColor: '#FFFFFF',
+  bgColor: '#1E2226',
+};

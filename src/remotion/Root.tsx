@@ -4,6 +4,7 @@ import {BouncingBall} from './BouncingBall';
 import {KineticTypography} from './KineticTypography';
 import {BounceToHello} from './BounceToHello';
 import {BounceToHelloV3} from './BounceToHelloV3';
+import {BounceToHelloV4} from './BounceToHelloV4';
 import {
   FPS,
   WIDTH,
@@ -12,6 +13,7 @@ import {
   KINETIC_CONFIG,
   BOUNCE_CONFIG,
   BOUNCE_HELLO_V3,
+  BOUNCE_HELLO_V4,
 } from './constants';
 import {loadFont} from '@remotion/google-fonts/Inter';
 import {loadFont as loadMontserrat} from '@remotion/google-fonts/Montserrat';
@@ -63,6 +65,14 @@ export const RemotionRoot = () => {
         fps={BOUNCE_HELLO_V3.fps}
         width={BOUNCE_HELLO_V3.width}
         height={BOUNCE_HELLO_V3.height}
+      />
+      <Composition
+        id="BounceToHelloV4"
+        component={BounceToHelloV4}
+        durationInFrames={BOUNCE_HELLO_V4.durationInFrames}
+        fps={BOUNCE_HELLO_V4.fps}
+        width={BOUNCE_HELLO_V4.width}
+        height={BOUNCE_HELLO_V4.height}
       />
     </>
   );
