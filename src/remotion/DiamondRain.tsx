@@ -5,11 +5,11 @@ import {
   useVideoConfig,
   spring,
   Easing,
-  Sequence,
   Series,
 } from 'remotion';
 import {DIAMOND_RAIN_CONFIG} from './constants';
 import React, {useMemo} from 'react';
+import {Diamond, Atom, Zap, Boxes} from 'lucide-react';
 
 const Particle: React.FC<{
   x: number;
@@ -127,10 +127,68 @@ const TextElement: React.FC<{
   );
 };
 
+const IconElement: React.FC<{
+  icon: React.ReactNode;
+  x: number;
+  y: [number, number];
+  startFrame: number;
+  size: number;
+  color: string;
+  principles?: any;
+}> = ({icon, x, y, startFrame, size, color, principles}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  
+  const progress = spring({
+    frame: frame - startFrame,
+    fps,
+    config: {stiffness: 100, damping: 12},
+  });
+
+  const opacity = interpolate(progress, [0, 0.3], [0, 1]);
+  const translateY = interpolate(progress, [0, 1], [y[0], y[1]]);
+  
+  let scaleX = progress;
+  let scaleY = progress;
+  
+  if (principles?.squash && principles?.stretch) {
+    const s1 = principles.squash / 100;
+    const s2 = principles.stretch / 100;
+    scaleY = interpolate(progress, [0, 0.5, 1], [0, s2, 1]);
+    scaleX = interpolate(progress, [0, 0.5, 1], [0, s1, 1]);
+  }
+
+  const rotate = principles?.rotate ? interpolate(progress, [0, 1], [0, principles.rotate]) : 0;
+
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: x,
+        top: translateY,
+        transform: `translate(-50%, -50%) scale(${scaleX}, ${scaleY}) rotate(${rotate}deg)`,
+        opacity,
+        color,
+      }}
+    >
+      {React.cloneElement(icon as React.ReactElement, { size })}
+    </div>
+  );
+};
+
 const Screen01: React.FC = () => {
   return (
     <AbsoluteFill>
       <DiamondBackground />
+      <IconElement
+        icon={<Diamond />}
+        x={540}
+        y={[400, 400]}
+        startFrame={15}
+        size={120}
+        color={DIAMOND_RAIN_CONFIG.colors.brand}
+        principles={{squash: 90, stretch: 110, exaggerate: 115}}
+      />
       <TextElement
         text="It rains DIAMONDS"
         y={[700, 650]}
@@ -160,9 +218,18 @@ const Screen02: React.FC = () => {
   return (
     <AbsoluteFill>
        <DiamondBackground />
+       <IconElement
+        icon={<Boxes />}
+        x={540}
+        y={[700, 650]}
+        startFrame={10}
+        size={100}
+        color={DIAMOND_RAIN_CONFIG.colors.brand}
+        principles={{squash: 95, stretch: 105, exaggerate: 115}}
+      />
        <TextElement
-        text="1. The Ingredients: Methane"
-        y={[500, 500]}
+        text="1. Methane + Pressure"
+        y={[400, 400]}
         startFrame={0}
         durationInFrames={135}
         fontSize={72}
@@ -172,7 +239,7 @@ const Screen02: React.FC = () => {
         blur={8}
       />
       <TextElement
-        text="Pressure: Millions x Earth"
+        text="Millions x Earth's pressure"
         y={[950, 900]}
         startFrame={36}
         durationInFrames={135}
@@ -185,37 +252,26 @@ const Screen02: React.FC = () => {
 };
 
 const Screen03: React.FC = () => {
-  const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
-
-  const diamondProgress = spring({
-    frame: frame - 30,
-    fps,
-    config: {stiffness: 100, damping: 12},
-  });
-
-  const scale = interpolate(diamondProgress, [0, 1], [0, 3]);
-  const rotate = interpolate(frame, [30, 60], [0, 180]);
-  const opacity = interpolate(diamondProgress, [0, 0.5], [0, 1]);
-  const blur = interpolate(diamondProgress, [0, 1], [20, 0]);
-
   return (
     <AbsoluteFill>
       <DiamondBackground />
-      <div 
-        style={{
-          position: 'absolute',
-          left: '540px',
-          top: '960px',
-          width: '50px',
-          height: '50px',
-          backgroundColor: '#FFFFFF',
-          opacity,
-          transform: `translate(-50%, -50%) scale(${scale}) rotate(${rotate}deg)`,
-          clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
-          filter: `blur(${blur}px)`,
-          boxShadow: '0 0 40px #00D4FF'
-        }}
+      <IconElement
+        icon={<Atom />}
+        x={540}
+        y={[960, 960]}
+        startFrame={30}
+        size={240}
+        color={DIAMOND_RAIN_CONFIG.colors.text}
+        principles={{rotate: 180, exaggerate: 120}}
+      />
+      <TextElement
+        text="Carbon → Diamonds"
+        y={[1200, 1150]}
+        startFrame={60}
+        durationInFrames={120}
+        fontSize={64}
+        weight={800}
+        pop
       />
     </AbsoluteFill>
   );
@@ -225,12 +281,20 @@ const Screen04: React.FC = () => {
   return (
     <AbsoluteFill>
       <DiamondBackground />
+      <IconElement
+        icon={<Zap />}
+        x={540}
+        y={[800, 800]}
+        startFrame={5}
+        size={100}
+        color={DIAMOND_RAIN_CONFIG.colors.brand}
+      />
       <TextElement
         text="Recreated on Earth with lasers"
         y={[960, 960]}
         startFrame={0}
         durationInFrames={105}
-        fontSize={84}
+        fontSize={64}
         weight={800}
         pop
         blur={6}

@@ -374,6 +374,21 @@ export const BOUNCE_HELLO_V4 = {
   bgColor: '#1E2226',
 };
 
+export const FIVERR_PROMO_CONFIG = {
+  width: 1080,
+  height: 1920,
+  fps: 30,
+  colors: {
+    brand: '#FFD000',
+    text: '#FFFFFF',
+    dark: '#1E2228',
+    orange: '#E07A4F',
+    blue: '#6A9BC1',
+    mustard: '#DDB34A',
+  },
+  durationInFrames: 1060,
+};
+
 export const DIAMOND_RAIN_CONFIG = {
   width: 1080,
   height: 1920,
