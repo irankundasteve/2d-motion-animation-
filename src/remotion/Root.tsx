@@ -7,6 +7,7 @@ import {BounceToHelloV3} from './BounceToHelloV3';
 import {BounceToHelloV4} from './BounceToHelloV4';
 import {DiamondRain} from './DiamondRain';
 import {FiverrPromo} from './FiverrPromo';
+import {FiverrPromoV4} from './FiverrPromoV4';
 import {
   FPS,
   WIDTH,
@@ -89,6 +90,14 @@ export const RemotionRoot = () => {
       <Composition
         id="FiverrPromo"
         component={FiverrPromo}
+        durationInFrames={FIVERR_PROMO_CONFIG.durationInFrames}
+        fps={FIVERR_PROMO_CONFIG.fps}
+        width={FIVERR_PROMO_CONFIG.width}
+        height={FIVERR_PROMO_CONFIG.height}
+      />
+      <Composition
+        id="FiverrPromoV4"
+        component={FiverrPromoV4}
         durationInFrames={FIVERR_PROMO_CONFIG.durationInFrames}
         fps={FIVERR_PROMO_CONFIG.fps}
         width={FIVERR_PROMO_CONFIG.width}
