@@ -386,7 +386,7 @@ export const FIVERR_PROMO_CONFIG = {
     blue: '#6A9BC1',
     mustard: '#DDB34A',
   },
-  durationInFrames: 995, // 85 (S1) + 90 * 9 (S2-S10) + 100 (S11)
+  durationInFrames: 1060, // 150 (S1) + 90 * 9 (S2-S10) + 100 (S11)
 };
 
 export const DIAMOND_RAIN_CONFIG = {
@@ -399,4 +399,16 @@ export const DIAMOND_RAIN_CONFIG = {
     text: '#FFFFFF',
     bg: '#0A1931',
   }
+};
+
+export const PYTHON_COMP_CONFIG = {
+  width: 1080,
+  height: 1920,
+  fps: 30,
+  durationInFrames: 450, // 105 (S1) + 180 (S2) + 165 (S3)
+  colors: {
+    brand: '#FFD000',
+    text: '#FFFFFF',
+    bg: '#1E2226',
+  },
 };

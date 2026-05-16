@@ -9,6 +9,7 @@ import {DiamondRain} from './DiamondRain';
 import {FiverrPromo} from './FiverrPromo';
 import {FiverrPromoV4} from './FiverrPromoV4';
 import {FiverrPromoV5} from './FiverrPromoV5';
+import {PythonListComp} from './PythonListComp';
 import {
   FPS,
   WIDTH,
@@ -20,6 +21,7 @@ import {
   BOUNCE_HELLO_V4,
   DIAMOND_RAIN_CONFIG,
   FIVERR_PROMO_CONFIG,
+  PYTHON_COMP_CONFIG,
 } from './constants';
 import {loadFont} from '@remotion/google-fonts/Inter';
 import {loadFont as loadMontserrat} from '@remotion/google-fonts/Montserrat';
@@ -111,6 +113,14 @@ export const RemotionRoot = () => {
         fps={FIVERR_PROMO_CONFIG.fps}
         width={FIVERR_PROMO_CONFIG.width}
         height={FIVERR_PROMO_CONFIG.height}
+      />
+      <Composition
+        id="PythonListComp"
+        component={PythonListComp}
+        durationInFrames={PYTHON_COMP_CONFIG.durationInFrames}
+        fps={PYTHON_COMP_CONFIG.fps}
+        width={PYTHON_COMP_CONFIG.width}
+        height={PYTHON_COMP_CONFIG.height}
       />
     </>
   );
