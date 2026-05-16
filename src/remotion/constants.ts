@@ -381,12 +381,12 @@ export const FIVERR_PROMO_CONFIG = {
   colors: {
     brand: '#FFD000',
     text: '#FFFFFF',
-    dark: '#1E2228',
+    dark: '#1E2226',
     orange: '#E07A4F',
     blue: '#6A9BC1',
     mustard: '#DDB34A',
   },
-  durationInFrames: 1060,
+  durationInFrames: 985, // 85 (S1) + 90 * 10 (S2-S11)
 };
 
 export const DIAMOND_RAIN_CONFIG = {
