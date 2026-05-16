@@ -386,7 +386,7 @@ export const FIVERR_PROMO_CONFIG = {
     blue: '#6A9BC1',
     mustard: '#DDB34A',
   },
-  durationInFrames: 985, // 85 (S1) + 90 * 10 (S2-S11)
+  durationInFrames: 995, // 85 (S1) + 90 * 9 (S2-S10) + 100 (S11)
 };
 
 export const DIAMOND_RAIN_CONFIG = {
