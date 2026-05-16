@@ -405,7 +405,7 @@ export const PYTHON_COMP_CONFIG = {
   width: 1080,
   height: 1920,
   fps: 30,
-  durationInFrames: 450, // 105 (S1) + 180 (S2) + 165 (S3)
+  durationInFrames: 411, // 96 (S1) + 165 (S2) + 150 (S3)
   colors: {
     brand: '#FFD000',
     text: '#FFFFFF',
